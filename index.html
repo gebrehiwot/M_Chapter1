@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 – Mobile Computing (Full Reference Version)</title>
+  style.css
+</head>
+<body>
+  <header class="site-header">
+    <h1>📱 Chapter 1 – Introduction to Mobile Computing</h1>
+    <p>Deep Dive • References • Architecture • Sensors • Practical Tasks</p>
+  </header>
+
+  <main class="chapter-content">
+    <section>
+      <h2>1. What Is Mobile Computing?</h2>
+      <p>Mobile computing is defined by three major characteristics:</p>
+      <ul>
+        <li><strong>🌐 Mobility:</strong> Devices move between Wi‑Fi/5G/offline frequently, requiring apps that handle unstable networks. <span class="ref"></span></li>
+        <li><strong>🔋 Resource Constraints:</strong> Phones have limited RAM, CPU, battery, and thermal limits—Android optimizes for low-memory devices via ART (Android Runtime). <span class="ref"></span></li>
+        <li><strong>📡 Context Awareness:</strong> Devices use sensors (GPS, accelerometer, gyroscope, magnetometer) for intelligent responses. <span class="ref"></span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Android Architecture (Software Stack)</h2>
+      <pre>
+Applications
+↑
+Framework APIs (Java/Kotlin)
+↑
+Native Libraries (C/C++)
+↑
+ART Runtime
+↑
+HAL (Hardware Abstraction Layer)
+↑
+Linux Kernel
+      </pre>
+      <p>This stack defines how Android apps interact with hardware and system services. <span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>2.1 Linux Kernel</h2>
+      <p>The foundation of Android, providing:</p>
+      <ul>
+        <li>Drivers for camera, display, sensors, Bluetooth</li>
+        <li>Memory & process management</li>
+        <li>SELinux-based security</li>
+      </ul>
+      <p><span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>2.2 HAL – Hardware Abstraction Layer</h2>
+      <p>The HAL provides standard interfaces for hardware components (camera, audio, sensors, Bluetooth). This lets higher-level APIs interact with hardware without knowing how it physically works. <span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>2.3 Native Libraries</h2>
+      <p>High‑performance components written in C/C++:</p>
+      <ul>
+        <li>OpenGL ES (graphics)</li>
+        <li>libmedia (audio/video)</li>
+        <li>SQLite (database)</li>
+        <li>SSL (security)</li>
+      </ul>
+      <p><span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>2.4 Android Runtime (ART)</h2>
+      <p>ART replaced Dalvik and provides:</p>
+      <ul>
+        <li>AOT + JIT compilation</li>
+        <li>Fast garbage collection</li>
+        <li>Improved debugging & crash reporting</li>
+        <li>Optimized DEX execution</li>
+      </ul>
+      <p><span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>2.5 Application Framework</h2>
+      <p>The layer developers use daily. It includes:</p>
+      <ul>
+        <li>Activity Manager</li>
+        <li>Notification Manager</li>
+        <li>Content Providers</li>
+        <li>Window Manager</li>
+      </ul>
+      <p><span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>3. Sensors & Context Awareness</h2>
+      <p>Sensors pass through Android's sensor stack:</p>
+      <pre>
+Hardware Sensor → Kernel Driver → Sensor HAL → Sensor Service → SensorManager → App
+      </pre>
+      <p>Android supports accelerometer, gyroscope, magnetometer, barometer, proximity, and more. <span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>4. Development Environment Essentials</h2>
+      <ul>
+        <li>Android Studio</li>
+        <li>Gradle build system</li>
+        <li>SDK + Platform Tools</li>
+        <li>Emulator or physical device</li>
+      </ul>
+      <p>DEX bytecode is produced by build tools like <strong>d8</strong> for ART. <span class="ref"></span></p>
+    </section>
+
+    <section>
+      <h2>5. Practical Exercise (“WAY OUT”)</h2>
+      <ol>
+        <li>Modify the <code>android:label</code> in <strong>AndroidManifest.xml</strong>.</li>
+        <li>Install Android Sources in the SDK Manager.</li>
+        <li>Rebuild the project using Clean → Rebuild.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>6. References</h2>
+      <ul>
+        <li>Android Platform Architecture – <a href="#">Android Developers</a> <span class="ref"></span></li>
+        <li>AOSP Architecture Overview – <a href="#">Android Open Source Project</a> <span class="ref"></span></li>
+        <li>Android Sensors – <a href="#">AOSP Sensors Documentation</a> <span class="ref"></span></li>
+        <li>Native Libraries – <a href="#">TutorialsPoint</a> <span class="ref"></span></li>
+        <li>Framework Details – <a href="#">GeeksforGeeks</a> <span class="ref"></span></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
