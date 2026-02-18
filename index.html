@@ -1,242 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chapter 1 – Mobile Computing (Animated Arrows Edition)</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 1 – Mobile Computing (Professional + Annotatable)</title>
 
-  <!-- ============================= -->
-  <!-- MODERN, ANIMATED, EMBEDDED CSS -->
-  <!-- ============================= -->
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(135deg, #e8eeff, #f9faff);
-      overflow-x: hidden;
-    }
+<!-- ============================= -->
+<!-- PROFESSIONAL THEME + ANIMATION -->
+<!-- ============================= -->
+<style>
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #e8eeff, #f9faff);
+    overflow-x: hidden;
+  }
 
-    /* HEADER */
-    .site-header {
-      background: linear-gradient(135deg, #4f46e5, #6a4bff);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      animation: fadeDown 1s ease;
-    }
+  .site-header {
+    background: linear-gradient(135deg, #4f46e5, #6a4bff);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: fadeDown 1s ease;
+  }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    /* NAVIGATION */
-    .top-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      animation: fadeIn 1.2s ease;
-    }
+  .top-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
 
-    .top-nav button {
-      background: #4f46e5;
-      color: white;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 14px;
-    }
-    .top-nav button:hover {
-      background: #372fcc;
-      transform: scale(1.05);
-    }
+  .top-nav button {
+    background: #4f46e5;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+  .top-nav button:hover {
+    background: #372fcc;
+    transform: scale(1.05);
+  }
 
-    /* CONTENT */
-    .chapter-content {
-      padding: 20px 40px;
-      max-width: 1100px;
-      margin: auto;
-    }
+  .chapter-content {
+    padding: 20px 40px;
+    max-width: 1100px;
+    margin: auto;
+  }
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      border-left: 6px solid #4f46e5;
-      animation: slideUp 0.7s ease;
-    }
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    border-left: 6px solid #4f46e5;
+  }
 
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .architecture-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
 
-    /* FLOW CONTAINER */
-    .architecture-flow {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
+  .layer-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 160px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
+  }
 
-    .layer-box {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      width: 150px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transform: translateY(20px);
-      opacity: 0;
-      animation: riseUp 1s forwards;
-    }
+  /* CURVED SVG ARROWS */
+  .svg-arrow {
+    width: 120px;
+    height: 70px;
+  }
 
-    @keyframes riseUp {
-      to { transform: translateY(0); opacity: 1; }
-    }
+  /* DRAWING CANVAS OVERLAY */
+  #drawCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
 
-    /* ARROWS */
-    .arrow {
-      font-size: 35px;
-      animation: arrowPulse 1.3s infinite;
-      color: #4f46e5;
-    }
+  #toolbar {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 10000;
+  }
 
-    @keyframes arrowPulse {
-      0% { opacity: 0.2; transform: translateY(-5px); }
-      50% { opacity: 1; transform: translateY(5px); }
-      100% { opacity: 0.2; transform: translateY(-5px); }
-    }
+  #toolbar button {
+    margin: 5px 0;
+    width: 100%;
+    padding: 10px;
+    background: #4f46e5;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-    /* FOOTER */
-    .footer {
-      text-align: center;
-      background: #4f46e5;
-      color: white;
-      padding: 12px;
-      margin-top: 40px;
-      animation: fadeIn 1s ease;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <header class="site-header">
-    <h1>📱 Chapter 1 – Introduction to Mobile Computing</h1>
-    <p>Fully Animated • Visual Learning • Layer‑by‑Layer Understanding</p>
-  </header>
+<header class="site-header">
+  <h1>📱 Chapter 1 – Introduction to Mobile Computing</h1>
+  <p>Professional • Animated • Annotatable</p>
+</header>
 
-  <nav class="top-nav">
-    <button onclick="scrollToSection('sec1')">Mobile Computing</button>
-    <button onclick="scrollToSection('sec2')">Architecture</button>
-    <button onclick="scrollToSection('sec3')">Sensors</button>
-    <button onclick="scrollToSection('sec4')">Dev Environment</button>
-    <button onclick="scrollToSection('sec5')">Exercises</button>
-  </nav>
+<nav class="top-nav">
+  <button onclick="scrollToSection('mc')">Mobile Computing</button>
+  <button onclick="scrollToSection('arch')">Architecture</button>
+  <button onclick="scrollToSection('sens')">Sensors</button>
+  <button onclick="scrollToSection('env')">Environment</button>
+  <button onclick="scrollToSection('ex')">Exercises</button>
+</nav>
 
-  <main class="chapter-content">
+<main class="chapter-content">
 
-    <!-- SECTION 1 -->
-    <section id="sec1" class="card">
-      <h2>✨ 1. What Is Mobile Computing?</h2>
-      <p>Animated visualization of a mobile device navigating through the real world:</p>
+<section id="mc" class="card">
+  <h2>1. Mobile Computing</h2>
+  <p>Mobile computing involves mobility, resource constraints, and contextual awareness supported by sensors and real‑time conditions.</p>
+</section>
 
-      <div class="animated-diagram">
-        📱 → 🚗 → 🏠 → 🛰 → 🌍 → 📡 → 🔋
-        <br><br>
-        <b>Your device constantly moves, switches networks, uses sensors, and saves battery intelligently.</b>
-      </div>
-    </section>
+<section id="arch" class="card">
+  <h2>2. Android Architecture – Layered Model</h2>
 
-    <!-- SECTION 2: ANDROID ARCHITECTURE WITH ANIMATED ARROWS -->
-    <section id="sec2" class="card">
-      <h2>🤖 2. Android Architecture – Now with Animated Arrows</h2>
-      <p>This new animated architecture flow visually teaches how an Android app interacts with each system layer.</p>
+  <div class="architecture-flow">
 
-      <div class="architecture-flow">
+    <div class="layer-box">📱 Apps</div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
+    </path></svg>
 
-        <div class="layer-box" style="animation-delay:0.1s">📱 Apps</div>
-        <div class="arrow">⬇️</div>
+    <div class="layer-box">🧩 Framework<br><small>(Activities, Views)</small></div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
+    </path></svg>
 
-        <div class="layer-box" style="animation-delay:0.2s">🧩 Framework<br><small>(Activities, Views, Intents)</small></div>
-        <div class="arrow">⬇️</div>
+    <div class="layer-box">⚙ Native Libs</div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
+    </path></svg>
 
-        <div class="layer-box" style="animation-delay:0.3s">⚙ Native Libs<br><small>(Media, Graphics, SQLite)</small></div>
-        <div class="arrow">⬇️</div>
+    <div class="layer-box">🚀 ART Runtime</div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
+    </path></svg>
 
-        <div class="layer-box" style="animation-delay:0.4s">🚀 ART Runtime<br><small>(DEX → Machine Code)</small></div>
-        <div class="arrow">⬇️</div>
+    <div class="layer-box">🔌 HAL</div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
+      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
+    </path></svg>
 
-        <div class="layer-box" style="animation-delay:0.5s">🔌 HAL<br><small>(Hardware Bridge)</small></div>
-        <div class="arrow">⬇️</div>
+    <div class="layer-box">🐧 Linux Kernel</div>
 
-        <div class="layer-box" style="animation-delay:0.6s">🐧 Linux Kernel<br><small>(Drivers, Memory, Security)</small></div>
+  </div>
 
-      </div>
+</section>
 
-      <p style="margin-top:20px; font-size:16px;">
-        This animation helps students see the **exact journey** taken every time they open an Android app:<br><br>
-        <b>Tap App → Framework → ART → HAL → Kernel → Hardware → Rendered UI</b><br><br>
-        This visual clarity dramatically improves understanding.
-      </p>
-    </section>
+<section id="sens" class="card">
+  <h2>3. Sensors & Context Awareness</h2>
+  <p>Sensors report environmental or physical conditions which flow through system layers before reaching applications.</p>
+</section>
 
-    <!-- SENSORS -->
-    <section id="sec3" class="card">
-      <h2>🛰 3. Sensors & Context Awareness</h2>
-      <pre>
-Sensor → Kernel Driver → Sensor HAL → Sensor Service → SensorManager → App
-      </pre>
-      <p>This chain represents how raw sensor readings finally reach your Android app.</p>
-    </section>
+<section id="env" class="card">
+  <h2>4. Android Development Environment</h2>
+  <ul>
+    <li>Android Studio</li>
+    <li>Gradle Build System</li>
+    <li>Android SDK Tools</li>
+    <li>Emulator / Physical Device</li>
+  </ul>
+</section>
 
-    <!-- DEV ENVIRONMENT -->
-    <section id="sec4" class="card">
-      <h2>🛠 4. Android Development Environment</h2>
-      <ul>
-        <li>Android Studio</li>
-        <li>Gradle Build System</li>
-        <li>SDK & Tools</li>
-        <li>Emulator or Physical Device</li>
-      </ul>
-    </section>
+<section id="ex" class="card">
+  <h2>5. Practical Exercise</h2>
+  <ol>
+    <li>Edit <code>android:label</code> in Manifest</li>
+    <li>Install Android Sources</li>
+    <li>Clean and rebuild project</li>
+  </ol>
+</section>
 
-    <!-- EXERCISES -->
-    <section id="sec5" class="card">
-      <h2>🏁 5. Practical Exercise – "WAY OUT"</h2>
-      <ol>
-        <li>Change <code>android:label</code> in_manifest.</li>
-        <li>Install Android Sources.</li>
-        <li>Rebuild the project.</li>
-      </ol>
-    </section>
+</main>
 
-  </main>
+<footer class="footer">Professional Teaching Version</footer>
 
-  <footer class="footer">Mobile Application Development</footer>
+<!-- ============================= -->
+<!-- DRAWING TOOL SCRIPT + CANVAS -->
+<!-- ============================= -->
+<canvas id="drawCanvas"></canvas>
+<div id="toolbar">
+  <button onclick="enableDraw()">✏ Enable Draw</button>
+  <button onclick="disableDraw()">🧹 Disable</button>
+  <button onclick="clearCanvas()">❌ Clear</button>
+</div>
 
-  <!-- JS SCROLL -->
-  <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const canvas = document.getElementById('drawCanvas');
+  const ctx = canvas.getContext('2d');
+  let drawing = false;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas(); window.onresize = resizeCanvas;
+
+  function enableDraw() {
+    canvas.style.pointerEvents = 'auto';
+    canvas.onmousedown = () => drawing = true;
+    canvas.onmouseup = () => drawing = false;
+    canvas.onmousemove = (e) => {
+      if (!drawing) return;
+      ctx.fillStyle = "#ff0000";
+      ctx.beginPath();
+      ctx.arc(e.clientX, e.clientY, 4, 0, Math.PI * 2);
+      ctx.fill();
     }
-  </script>
+  }
+
+  function disableDraw() {
+    canvas.style.pointerEvents = 'none';
+  }
+
+  function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+</script>
 
 </body>
 </html>
