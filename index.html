@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chapter 1 – Mobile Computing (All‑in‑One Clean Version)</title>
+  <title>Chapter 1 – Mobile Computing (Animated Arrows Edition)</title>
 
   <!-- ============================= -->
-  <!-- CLEAN, NEAT, EMBEDDED CSS      -->
+  <!-- MODERN, ANIMATED, EMBEDDED CSS -->
   <!-- ============================= -->
   <style>
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
       background: linear-gradient(135deg, #e8eeff, #f9faff);
+      overflow-x: hidden;
     }
 
+    /* HEADER */
     .site-header {
       background: linear-gradient(135deg, #4f46e5, #6a4bff);
       color: white;
@@ -22,8 +24,15 @@
       padding: 40px 20px;
       font-size: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: fadeDown 1s ease;
     }
 
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* NAVIGATION */
     .top-nav {
       display: flex;
       justify-content: center;
@@ -35,6 +44,7 @@
       top: 0;
       z-index: 10;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      animation: fadeIn 1.2s ease;
     }
 
     .top-nav button {
@@ -49,11 +59,13 @@
     }
     .top-nav button:hover {
       background: #372fcc;
+      transform: scale(1.05);
     }
 
+    /* CONTENT */
     .chapter-content {
       padding: 20px 40px;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
     }
 
@@ -64,36 +76,61 @@
       margin-bottom: 25px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.07);
       border-left: 6px solid #4f46e5;
-      animation: fadeIn 0.7s ease;
+      animation: slideUp 0.7s ease;
     }
 
-    .sub-card {
-      background: #fafaff;
-      padding: 20px 25px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-    }
-
-    pre {
-      background: #f2f3ff;
-      padding: 20px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-size: 15px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* FLOW CONTAINER */
+    .architecture-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .layer-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      width: 150px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: riseUp 1s forwards;
+    }
+
+    @keyframes riseUp {
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* ARROWS */
+    .arrow {
+      font-size: 35px;
+      animation: arrowPulse 1.3s infinite;
+      color: #4f46e5;
+    }
+
+    @keyframes arrowPulse {
+      0% { opacity: 0.2; transform: translateY(-5px); }
+      50% { opacity: 1; transform: translateY(5px); }
+      100% { opacity: 0.2; transform: translateY(-5px); }
+    }
+
+    /* FOOTER */
     .footer {
       text-align: center;
       background: #4f46e5;
       color: white;
       padding: 12px;
       margin-top: 40px;
+      animation: fadeIn 1s ease;
     }
   </style>
 </head>
@@ -102,110 +139,99 @@
 
   <header class="site-header">
     <h1>📱 Chapter 1 – Introduction to Mobile Computing</h1>
-    <p>Deep Dive • Modern UI • Interactive • All in One File</p>
+    <p>Fully Animated • Visual Learning • Layer‑by‑Layer Understanding</p>
   </header>
 
   <nav class="top-nav">
-    <button onclick="scrollToSection('sec1')">What is Mobile Computing?</button>
+    <button onclick="scrollToSection('sec1')">Mobile Computing</button>
     <button onclick="scrollToSection('sec2')">Architecture</button>
     <button onclick="scrollToSection('sec3')">Sensors</button>
-    <button onclick="scrollToSection('sec4')">Environment</button>
+    <button onclick="scrollToSection('sec4')">Dev Environment</button>
     <button onclick="scrollToSection('sec5')">Exercises</button>
-    <button onclick="scrollToSection('sec6')">References</button>
   </nav>
 
   <main class="chapter-content">
 
+    <!-- SECTION 1 -->
     <section id="sec1" class="card">
-      <h2>1. What Is Mobile Computing?</h2>
-      <p>Mobile computing involves mobility, resource constraints, and context awareness.</p>
-      <ul>
-        <li>🌐 <b>Mobility</b>: Constant network shifts (5G/WiFi/Offline)</li>
-        <li>🔋 <b>Resource Limits</b>: Limited RAM, CPU & battery</li>
-        <li>📡 <b>Context Awareness</b>: Sensors provide environmental data</li>
-      </ul>
+      <h2>✨ 1. What Is Mobile Computing?</h2>
+      <p>Animated visualization of a mobile device navigating through the real world:</p>
+
+      <div class="animated-diagram">
+        📱 → 🚗 → 🏠 → 🛰 → 🌍 → 📡 → 🔋
+        <br><br>
+        <b>Your device constantly moves, switches networks, uses sensors, and saves battery intelligently.</b>
+      </div>
     </section>
 
+    <!-- SECTION 2: ANDROID ARCHITECTURE WITH ANIMATED ARROWS -->
     <section id="sec2" class="card">
-      <h2>2. Android Architecture (Software Stack)</h2>
-      <pre>
-Applications
-↑
-Framework APIs (Java/Kotlin)
-↑
-Native Libraries (C/C++)
-↑
-ART Runtime
-↑
-HAL (Hardware Layer)
-↑
-Linux Kernel
-      </pre>
-      <p>This layered architecture enables secure, fast, hardware-independent execution.</p>
+      <h2>🤖 2. Android Architecture – Now with Animated Arrows</h2>
+      <p>This new animated architecture flow visually teaches how an Android app interacts with each system layer.</p>
+
+      <div class="architecture-flow">
+
+        <div class="layer-box" style="animation-delay:0.1s">📱 Apps</div>
+        <div class="arrow">⬇️</div>
+
+        <div class="layer-box" style="animation-delay:0.2s">🧩 Framework<br><small>(Activities, Views, Intents)</small></div>
+        <div class="arrow">⬇️</div>
+
+        <div class="layer-box" style="animation-delay:0.3s">⚙ Native Libs<br><small>(Media, Graphics, SQLite)</small></div>
+        <div class="arrow">⬇️</div>
+
+        <div class="layer-box" style="animation-delay:0.4s">🚀 ART Runtime<br><small>(DEX → Machine Code)</small></div>
+        <div class="arrow">⬇️</div>
+
+        <div class="layer-box" style="animation-delay:0.5s">🔌 HAL<br><small>(Hardware Bridge)</small></div>
+        <div class="arrow">⬇️</div>
+
+        <div class="layer-box" style="animation-delay:0.6s">🐧 Linux Kernel<br><small>(Drivers, Memory, Security)</small></div>
+
+      </div>
+
+      <p style="margin-top:20px; font-size:16px;">
+        This animation helps students see the **exact journey** taken every time they open an Android app:<br><br>
+        <b>Tap App → Framework → ART → HAL → Kernel → Hardware → Rendered UI</b><br><br>
+        This visual clarity dramatically improves understanding.
+      </p>
     </section>
 
-    <section id="sec2a" class="sub-card">
-      <h3>Linux Kernel</h3>
-      <p>Handles device drivers, memory, processes, SELinux.</p>
-
-      <h3>HAL – Hardware Abstraction Layer</h3>
-      <p>Interfaces for sensors, camera, audio, Bluetooth.</p>
-
-      <h3>Native Libraries</h3>
-      <p>Graphics (OpenGL), Media, SQLite, SSL.</p>
-
-      <h3>Android Runtime (ART)</h3>
-      <p>Runs optimized DEX using AOT + JIT.</p>
-
-      <h3>Application Framework</h3>
-      <p>Activity Manager, Window Manager, Notification Manager.</p>
-    </section>
-
+    <!-- SENSORS -->
     <section id="sec3" class="card">
-      <h2>3. Sensors & Context Awareness</h2>
+      <h2>🛰 3. Sensors & Context Awareness</h2>
       <pre>
 Sensor → Kernel Driver → Sensor HAL → Sensor Service → SensorManager → App
       </pre>
-      <p>Android integrates motion, location, environmental, and health-related sensors.</p>
+      <p>This chain represents how raw sensor readings finally reach your Android app.</p>
     </section>
 
+    <!-- DEV ENVIRONMENT -->
     <section id="sec4" class="card">
-      <h2>4. Android Development Environment</h2>
+      <h2>🛠 4. Android Development Environment</h2>
       <ul>
         <li>Android Studio</li>
         <li>Gradle Build System</li>
-        <li>Android SDK Tools</li>
-        <li>Emulator / Physical Device</li>
+        <li>SDK & Tools</li>
+        <li>Emulator or Physical Device</li>
       </ul>
     </section>
 
+    <!-- EXERCISES -->
     <section id="sec5" class="card">
-      <h2>5. Practical Exercise – "WAY OUT"</h2>
+      <h2>🏁 5. Practical Exercise – "WAY OUT"</h2>
       <ol>
-        <li>Change <code>android:label</code> in AndroidManifest.xml</li>
-        <li>Install Android Sources</li>
-        <li>Clean → Rebuild Project</li>
+        <li>Change <code>android:label</code> in_manifest.</li>
+        <li>Install Android Sources.</li>
+        <li>Rebuild the project.</li>
       </ol>
-    </section>
-
-    <section id="sec6" class="card">
-      <h2>6. References</h2>
-      <ul>
-        <li>Android Architecture – Android Developers</li>
-        <li>AOSP Architecture Documentation</li>
-        <li>AOSP Sensor Architecture</li>
-        <li>TutorialsPoint – Android Architecture</li>
-        <li>GeeksforGeeks – Framework Services</li>
-      </ul>
     </section>
 
   </main>
 
   <footer class="footer">Mobile Application Development</footer>
 
-  <!-- ============================= -->
-  <!-- CLEAN JAVASCRIPT BELOW        -->
-  <!-- ============================= -->
+  <!-- JS SCROLL -->
   <script>
     function scrollToSection(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
