@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chapter 1 – Mobile Computing</title>
+<title>Chapter 1 – Mobile Computing (Professional + Detailed + Annotatable)</title>
 
 <!-- ============================= -->
-<!-- PROFESSIONAL THEME + ANIMATION -->
+<!-- PROFESSIONAL THEME + DETAIL   -->
 <!-- ============================= -->
 <style>
   body {
@@ -21,14 +21,9 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 600;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    animation: fadeDown 1s ease;
-  }
-
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   .top-nav {
@@ -88,19 +83,19 @@
     padding: 20px;
     border-radius: 12px;
     text-align: center;
-    width: 160px;
+    width: 180px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     position: relative;
     z-index: 2;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
-  /* CURVED SVG ARROWS */
   .svg-arrow {
     width: 120px;
     height: 70px;
   }
 
-  /* DRAWING CANVAS OVERLAY */
   #drawCanvas {
     position: fixed;
     top: 0;
@@ -132,14 +127,13 @@
     border-radius: 5px;
     cursor: pointer;
   }
-
 </style>
 </head>
 
 <body>
-
 <header class="site-header">
   <h1>📱 Chapter 1 – Introduction to Mobile Computing</h1>
+  <p>Comprehensive • Animated • Annotatable • Teaching Ready</p>
 </header>
 
 <nav class="top-nav">
@@ -154,79 +148,106 @@
 
 <section id="mc" class="card">
   <h2>1. Mobile Computing</h2>
-  <p>Mobile computing involves mobility, resource constraints, and contextual awareness supported by sensors and real‑time conditions.</p>
+  <p><strong>Mobile Computing</strong> refers to performing computation on portable devices such as smartphones, tablets, and embedded IoT devices. It is shaped by three major characteristics:</p>
+  <ul>
+    <li><strong>Mobility</strong>: Devices frequently change physical location and transition between Wi‑Fi, 5G, and offline states.</li>
+    <li><strong>Resource Constraints</strong>: Mobile devices operate on limited CPU, RAM, storage, and battery budgets.</li>
+    <li><strong>Context Awareness</strong>: Devices leverage sensors (GPS, accelerometer, gyroscope, magnetometer, light sensors) to adapt behavior to user context.</li>
+  </ul>
+  <p>Understanding these characteristics is essential for designing adaptive and energy-efficient applications.</p>
 </section>
 
 <section id="arch" class="card">
-  <h2>2. Android Architecture – Layered Model</h2>
+  <h2>2. Android Architecture – Detailed Layered Model</h2>
+  <p>Android OS is structured in multiple layers, where each layer is responsible for specific system operations. The diagram below demonstrates the operational flow between layers during application execution.</p>
 
   <div class="architecture-flow">
 
-    <div class="layer-box">📱 Apps</div>
-    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
-    </path></svg>
+    <!-- Apps -->
+    <div class="layer-box">
+      📱 <strong>Apps</strong><br>
+      Activities • UI • User Interaction
+    </div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none"><animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" /></path></svg>
 
-    <div class="layer-box">🧩 Framework<br><small>(Activities, Views)</small></div>
-    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
-    </path></svg>
+    <!-- Framework -->
+    <div class="layer-box">
+      🧩 <strong>Framework</strong><br>
+      Activity Manager • Window Manager • Views
+    </div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none"><animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" /></path></svg>
 
-    <div class="layer-box">⚙ Native Libs</div>
-    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
-    </path></svg>
+    <!-- Native Libraries -->
+    <div class="layer-box">
+      ⚙ <strong>Native Libraries</strong><br>
+      Media • Graphics (OpenGL) • SQLite
+    </div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none"><animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" /></path></svg>
 
-    <div class="layer-box">🚀 ART Runtime</div>
-    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
-    </path></svg>
+    <!-- ART -->
+    <div class="layer-box">
+      🚀 <strong>ART Runtime</strong><br>
+      DEX Execution • JIT/AOT Compilation
+    </div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none"><animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" /></path></svg>
 
-    <div class="layer-box">🔌 HAL</div>
-    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none">
-      <animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" />
-    </path></svg>
+    <!-- HAL -->
+    <div class="layer-box">
+      🔌 <strong>HAL</strong><br>
+      Hardware Interface Abstractions
+    </div>
+    <svg class="svg-arrow"><path d="M10 10 C 60 80, 60 0, 110 70" stroke="#4f46e5" stroke-width="4" fill="none"><animate attributeName="stroke-dasharray" from="0,200" to="200,0" dur="1s" repeatCount="indefinite" /></path></svg>
 
-    <div class="layer-box">🐧 Linux Kernel</div>
+    <!-- Kernel -->
+    <div class="layer-box">
+      🐧 <strong>Linux Kernel</strong><br>
+      Drivers • Memory • Power • Security
+    </div>
 
   </div>
-
 </section>
 
 <section id="sens" class="card">
   <h2>3. Sensors & Context Awareness</h2>
-  <p>Sensors report environmental or physical conditions which flow through system layers before reaching applications.</p>
+  <p>Android integrates a variety of sensors such as:</p>
+  <ul>
+    <li>Motion sensors (Accelerometer, Gyroscope)</li>
+    <li>Environmental sensors (Light, Pressure)</li>
+    <li>Position sensors (GPS, Magnetometer)</li>
+  </ul>
+  <p>Sensor data travels through: Kernel Driver → HAL → Sensor Service → Framework APIs → App.</p>
 </section>
 
 <section id="env" class="card">
   <h2>4. Android Development Environment</h2>
+  <p>The recommended development setup includes:</p>
   <ul>
-    <li>Android Studio</li>
-    <li>Gradle Build System</li>
-    <li>Android SDK Tools</li>
-    <li>Emulator / Physical Device</li>
+    <li><strong>Android Studio</strong> – Official IDE for Android development.</li>
+    <li><strong>Gradle</strong> – Build automation and dependency management.</li>
+    <li><strong>Android SDK Tools</strong> – Libraries and packages required for building and testing apps.</li>
+    <li><strong>Emulator / Physical Device</strong> – For execution and debugging.</li>
   </ul>
 </section>
 
 <section id="ex" class="card">
   <h2>5. Practical Exercise</h2>
   <ol>
-    <li>Edit <code>android:label</code> in Manifest</li>
-    <li>Install Android Sources</li>
-    <li>Clean and rebuild project</li>
+    <li>Edit <code>android:label</code> in the Manifest file.</li>
+    <li>Install Android System Sources for reference.</li>
+    <li>Clean and rebuild the entire project in Android Studio.</li>
   </ol>
 </section>
 
 </main>
 
-<footer class="footer">2026</footer>
+<footer class="footer">2026 • Professional Teaching Version</footer>
 
 <!-- ============================= -->
 <!-- DRAWING TOOL SCRIPT + CANVAS -->
 <!-- ============================= -->
 <canvas id="drawCanvas"></canvas>
 <div id="toolbar">
-  <button onclick="enableDraw()">✏ Enable Draw</button>
+  <button onclick="enableDraw()">✏ Draw</button>
   <button onclick="disableDraw()">🧹 Disable</button>
   <button onclick="clearCanvas()">❌ Clear</button>
 </div>
